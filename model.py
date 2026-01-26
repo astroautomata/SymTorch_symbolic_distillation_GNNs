@@ -347,10 +347,10 @@ class PruningGN(NBodyGNN):
     def __init__(self, node_dim = 6, acc_dim = 2, hidden_dim = 300):
         super().__init__(node_dim=node_dim, acc_dim=acc_dim, hidden_dim=hidden_dim)
         self.model_type_ = 'pruning'
-        self.edge_model = PruningMLP(self.edge_model, 
+        self.edge_model = SymbolicModel(self.edge_model, 
                                       initial_dim = self.message_dim_, 
                                       target_dim = acc_dim, 
-                                      mlp_name = 'PruningMLP'
+                                      block_name = 'PruningMLP'
                                       )
         
 
