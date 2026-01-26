@@ -76,6 +76,13 @@ Install `requirements.txt`.
 pip install -r requirements.txt
 ```
 
+## SymTorch Version Note
+
+The code in this repository uses an **earlier version of SymTorch** from commit [`13b9925`](https://github.com/elizabethsztan/SymTorch/commit/13b9925e464d529c6baddeb8cd06572e013707e3). This version predates the implementation of native PyTorch model serialization, so the saving and loading mechanisms for symbolic models are different from the current SymTorch release. Specifically:
+- Symbolic models are saved using `save_model()` with `save_pytorch=False, save_regressors=True`
+- Models are loaded using `SymbolicModel.load_model()` with the original callable function passed as `mlp_architecture`
+
+
 ## Generate the dataset
 We need to generate the datasets that we will use for training. For example, for spring:
 ```bash
